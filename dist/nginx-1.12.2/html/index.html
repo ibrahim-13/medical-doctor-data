@@ -1,0 +1,106 @@
+<html ng-app="myangularapp" ng-controller="myangularController">
+    <head>
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    </head>
+<body>
+    <div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="av-form-link">Add/Verify</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="blockchain-form-link" ng-click="bchain()">Blockchain</a>
+							</div>
+							
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form"  method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="name" id="name" ng-model="name" tabindex="1" class="form-control" placeholder="Name" >
+									</div>
+									<div class="form-group">
+										<input type="text" name="id" id="id" ng-model="id" tabindex="2" class="form-control" placeholder="ID">
+									</div>
+									<div class="form-group">
+										<input type="text" name="cgpa" id="cgpa" ng-model="cgpa" tabindex="3" class="form-control" placeholder="CGPA">
+									</div>
+									<div class="form-group">
+										<input type="text" name="index" id="index" ng-model="index" tabindex="4" class="form-control" placeholder="Index (Leave empty if you are adding)">
+									</div>
+									
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="button" tabindex="5" class="form-control btn btn-login" value="Add" ng-click="add();">
+												<br></br>
+												<input type="button" tabindex="6" class="form-control btn btn-login" value="Verify" ng-click="verify();">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form"  method="post" role="form" style="display: none;">
+									 <select id="dindex">
+								</select>
+									<br></br>
+									<div class="col-sm-6 col-sm-offset-3"></div>
+							     	<input type="button" tabindex="7" class="form-control btn btn-login" value="Show" ng-click="show();">
+									<br></br>
+									<div style ="width:100%; height:25%; border:1px solid black; overflow-x:scroll">
+									<p1 id="current_hash"></p1>
+									<p1 id="previous_hash"></p1>
+								</div>
+								</div>													  
+								</form> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <script src="/js/angular.min.js"></script>  
+    <script src="/js/jquery-1.12.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/app.js"></script>
+	<script>
+    // Internal animation script. DO NOT CHANGE !!!
+	
+    $(function() {
+
+    $('#av-form-link').click(function(e) {
+		$("#login-form").delay(100).fadeIn(100);
+ 		$("#register-form").fadeOut(100);
+		$('#blockchain-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+	$('#blockchain-form-link').click(function(e) {
+		$("#register-form").delay(100).fadeIn(100);
+ 		$("#login-form").fadeOut(100);
+		$('#av-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+
+	});
+    </script>
+    </body>
+
+</html>
